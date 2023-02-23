@@ -6,10 +6,9 @@
     <template #col>
         <div class="mt-5 text-center">
             <div class="display-2 my-5">MotivationsChallenge</div>
-            <div class="display-4 my-5">Bereit für deine nächste Challenge?</div>
+            <div class="display-6 my-5">Bereit für deine nächste Challenge?</div>
         </div>
         <div class="my-5 offset-4 col-4">
-            <img src="@/assets/friends-g7ecf65acf_1920.jpg" class="img-fluid">
                 <component 
             :is="componentName" 
             @change-component="changeComponent">
