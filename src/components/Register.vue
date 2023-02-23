@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="text-center">
-        <h2>Jetzt anmelden</h2>
-        <p>oder <a class="text-vue2" role="button" @click="changeComponent('register')">erstellen Sie ein Konto.</a></p>
+        <h2>Jetzt registrieren</h2>
+        <p>oder <a class="text-vue2" role="button" @click="changeComponent('login')">melden Sie sich mit Ihrem Konto an.</a></p>
     </div>
     <div class="aler alert-danger col-md-12" v-if="error">{{ errorDisplayText }}</div>
     <Form @submit="submitData" :validation-schema="schema" v-slot="{ errors }">
         <div class="form-row">
-            <div class="form-group col-md-8 offset-2">
+            <div class="form-group col-md-12">
                 <label for="email"><strong>E-Mail-Adresse</strong></label>
                 <Field 
                 as="input" 
@@ -19,7 +19,7 @@
             </div>
         </div>
           <div class="form-row">
-            <div class="form-group col-md-8 offset-2">
+            <div class="form-group col-md-12">
                 <label for="password"><strong>Passwort</strong></label>
                 <Field 
                 as="input" 
@@ -30,11 +30,23 @@
                 <small class="text-danger" v-if="errors.password">{{ errors.password }}</small>
             </div>
         </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="confirmpassword"><strong>Passwort wiederholen</strong></label>
+                <Field 
+                as="input" 
+                name="confirmpassword" 
+                type="password" 
+                class="form-control" 
+                id="confirmpassword"/>
+                <small class="text-danger" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</small>
+            </div>
+        </div>
           <div class="form-row mt-3">
-            <div class="form-group col-md-8 offset-2">
+            <div class="form-group col-md-12">
                 <div class="d-grid">
                     <button class="btn bg-vue2">
-                         <span v-if="!isLoading">Anmelden</span>
+                        <span v-if="!isLoading">Registrieren</span>
                         <span v-else class="spinner-border spinner-border-small"></span>
                     </button>
                 </div>
@@ -50,7 +62,7 @@ import * as yup from "yup";
 import axios from "axios";
 
 export default {
-    name: "Login",
+    name: "Register",
     components: {
         Form,
         Field,
@@ -74,6 +86,9 @@ export default {
             .string()
             .required("Ein Passwort wird benötigt.")
             .min(6, "Das Passwort muss mindestens 6 Zeichen lang sein."),
+            confirmPassword: yup
+            .string()
+            .oneOf([yup.ref("password")], "Passwörter stimmen nicht überein.")
         });
         return {
             schema,
@@ -84,12 +99,10 @@ export default {
     computed: {
         errorDisplayText() {
              if (this.error) {
-                if (this.error.includes("INVALID_PASSWORD")) {
-                    return "Das Passwort ist nicht gültig"
-                } else if (this.error.includes("EMAIL_NOT_FOUND")){
-                    return "E-Mail Adresse konnte nicht gefunden werden"
+                if (this.error.includes("EMAIL_EXISTS")) {
+                    return "Die E-Mail Adresse existiert bereits"
                 }
-                return "Es ist ein imbekannter Fehler aufgetreten. Bitte versuchen Sie es noch einmal";
+                return "Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es noch einmal";
                 }
                 return "";
         },
@@ -98,18 +111,19 @@ export default {
         submitData(values) {
             this.isLoading = true;
             this.error = "";
-            const signinDO = {
+            const signupDO = {
                 email: values.email,
                 password: values.password,
                 returnSecureToken: true
         };
         axios
-        .post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyADxtTydWoEDBMvQVVPgUpPfShVI3nbFow", 
-        signinDO
+        .post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyADxtTydWoEDBMvQVVPgUpPfShVI3nbFow", 
+        signupDO
         )
         .then((response) => {
             console.log(response);
             this.isLoading = false;
+            this.changeComponent("login");
         })
         .catch((error) => {
             this.error = error.response.data.error.message;
