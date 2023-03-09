@@ -59,7 +59,6 @@
 <script>
 import { Form, Field} from "vee-validate";
 import * as yup from "yup";
-import axios from "axios";
 
 export default {
     name: "Register",
@@ -111,24 +110,18 @@ export default {
         submitData(values) {
             this.isLoading = true;
             this.error = "";
-            const signupDO = {
+            this.$store.dispatch("signup", {
                 email: values.email,
                 password: values.password,
-                returnSecureToken: true
-        };
-        axios
-        .post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyADxtTydWoEDBMvQVVPgUpPfShVI3nbFow", 
-        signupDO
-        )
-        .then((response) => {
-            console.log(response);
-            this.isLoading = false;
-            this.changeComponent("login");
-        })
-        .catch((error) => {
-            this.error = error.response.data.error.message;
-            this.isLoading = false;
-        });
+            })
+            .then(() => {
+                this.isLoading = false;
+                this.changeComponent("login");
+            })
+            .catch((error) => {
+                this.error = error.message;
+                this.isLoading = false;
+            });
         },
        changeComponent (componentName) {
             this.$emit("change-component", {componentName});

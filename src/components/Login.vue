@@ -47,7 +47,6 @@
 <script>
 import { Form, Field} from "vee-validate";
 import * as yup from "yup";
-import axios from "axios";
 
 export default {
     name: "Login",
@@ -57,7 +56,7 @@ export default {
     },
      emits: {
         "change-component": (payload) => {
-            if (payload.componentName !== "login") {
+            if (payload.componentName !== "register") {
                 return false;
             }
                 return true;
@@ -98,23 +97,21 @@ export default {
         submitData(values) {
             this.isLoading = true;
             this.error = "";
-            const signinDO = {
+            this.$store.dispatch("signin", {
                 email: values.email,
                 password: values.password,
-                returnSecureToken: true
-        };
-        axios
-        .post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyADxtTydWoEDBMvQVVPgUpPfShVI3nbFow", 
-        signinDO
-        )
-        .then((response) => {
-            console.log(response);
-            this.isLoading = false;
-        })
-        .catch((error) => {
-            this.error = error.response.data.error.message;
-            this.isLoading = false;
-        });
+            })
+            .then(() => {
+                this.isLoading = false;
+                console.log("Login erfolgreich");
+                // Weiterleitung zum internen Bereich
+                // this.$router.push("/first");
+                this.$router.push({ path: "/first" });
+            })
+            .catch((error) => {
+                this.error = error.message;
+                this.isLoading = false;
+            });
         },
        changeComponent (componentName) {
             this.$emit("change-component", {componentName});
