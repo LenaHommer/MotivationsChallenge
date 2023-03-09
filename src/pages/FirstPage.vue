@@ -1,7 +1,9 @@
 <template>
   <TheHomeLayout>
     <template #default>
-        <h2>Hallo</h2>
+        <div class="row">
+        <div class="text-center text-vue2"><h2 class="mt-4">„Nichts ist hilfreicher als eine Herausforderung, um das Beste in einem Menschen hervorzubringen.“</h2></div>
+        </div>
     </template>
   </TheHomeLayout>
 </template>
