@@ -6,14 +6,12 @@
     <template #col>
         <div class="mt-5 text-center">
             <div class="display-1"><strong>mydiscipline</strong></div>
-            <div class="display-6">Bereit für deine nächste Challenge?</div>
+            <div class="display-7 mb-5">Bereit für deine nächste Challenge?</div>
         </div>
-        <div class="my-5 offset-4 col-4">
-                <component 
+            <component 
             :is="componentName" 
             @change-component="changeComponent">
             </component>
-        </div>
     </template>
    </TheLoginLayout>
 </template>

@@ -1,13 +1,16 @@
 <template>
   <div>
-    <div class="text-center">
+    <div class="row">
+        <div class="col-12 text-center">
         <h2>Jetzt registrieren</h2>
         <p>oder <a class="text-vue2" role="button" @click="changeComponent('login')">melden Sie sich mit Ihrem Konto an.</a></p>
+        </div>
     </div>
+
     <div class="aler alert-danger col-md-12" v-if="error">{{ errorDisplayText }}</div>
     <Form @submit="submitData" :validation-schema="schema" v-slot="{ errors }">
         <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-4 offset-md-4">
                 <label for="email"><strong>E-Mail-Adresse</strong></label>
                 <Field 
                 as="input" 
@@ -18,8 +21,9 @@
                 <small class="text-danger" v-if="errors.email">{{ errors.email }}</small>
             </div>
         </div>
+
           <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-4 offset-md-4">
                 <label for="password"><strong>Passwort</strong></label>
                 <Field 
                 as="input" 
@@ -30,8 +34,9 @@
                 <small class="text-danger" v-if="errors.password">{{ errors.password }}</small>
             </div>
         </div>
+
           <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-4 offset-md-4">
                 <label for="confirmpassword"><strong>Passwort wiederholen</strong></label>
                 <Field 
                 as="input" 
@@ -42,8 +47,9 @@
                 <small class="text-danger" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</small>
             </div>
         </div>
+
           <div class="form-row mt-3">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-4 offset-md-4">
                 <div class="d-grid">
                     <button class="btn bg-vue2">
                         <span v-if="!isLoading">Registrieren</span>
