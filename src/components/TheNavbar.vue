@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-vue navbar-dark">
     <div class="container">
-        <router-link to="/first" class="navbar-brand">App Name</router-link>
+        <router-link to="/first" class="navbar-brand">mydescipline</router-link>
         <ul class="navbar-nav me-auto">
             <li class="nav-item active">
                 <router-link to="/first" class="nav-link">Startseite</router-link>

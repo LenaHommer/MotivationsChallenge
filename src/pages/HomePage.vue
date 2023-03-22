@@ -1,12 +1,12 @@
 <template>
    <TheLoginLayout 
-   :columnClass="'col-xl-5 offset-xl-4 bg-vue'" 
+   :columnClass="'col-12 bg-vue'" 
    :fullsize="true">
 
     <template #col>
         <div class="mt-5 text-center">
-            <div class="display-2 my-5">MotivationsChallenge</div>
-            <div class="display-6 my-5">Bereit für deine nächste Challenge?</div>
+            <div class="display-1"><strong>mydiscipline</strong></div>
+            <div class="display-6">Bereit für deine nächste Challenge?</div>
         </div>
         <div class="my-5 offset-4 col-4">
                 <component 

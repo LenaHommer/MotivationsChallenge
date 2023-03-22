@@ -16,7 +16,7 @@ export default {
     props: {
         columnClass: {
             type: String,
-            default:"col-xl-5 offset-4",
+            default:"col-6",
         },
           fullsize: {
             type: Boolean,

@@ -18,6 +18,11 @@ export default {
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~animate.css/animate.min.css";
 
+body {
+  width: 100%;
+  height: 100%;
+}
+
 .bg-vue {
   background-color: rgb(94, 125, 87);
   color: white;
@@ -32,5 +37,6 @@ export default {
 .text-vue2 {
   color: rgb(26, 61, 30);
 }
+
 
 </style>
