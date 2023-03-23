@@ -46,6 +46,9 @@
         <li class="nav-item">
           <router-link to="/create/challenge" class="nav-link" href="#">new Challenge</router-link>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">laufende Challenge</a>
+        </li>
       </ul>
       <button class="btn bg-vue2" @click="signout()">
             <i class="fas fa-sign-out-alt"></i> Logout

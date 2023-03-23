@@ -6,7 +6,7 @@
     <template #col>
         <div class="mt-5 text-center">
             <div class="display-1"><strong>mydiscipline</strong></div>
-            <div class="display-7 mb-5">Bereit für deine nächste Challenge?</div>
+            <div class="display-7 mb-5"> Bist du bereit für deine nächste Challenge?</div>
         </div>
             <component 
             :is="componentName" 

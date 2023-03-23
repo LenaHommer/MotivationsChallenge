@@ -1,9 +1,11 @@
 <template>
   <TheHomeLayout>
     <template #default>
+      <div class="container-fluid">
         <div class="row">
-        <div class="text-center text-vue2"><h2 class="mt-4">„Nichts ist hilfreicher als eine Herausforderung, um das Beste in einem Menschen hervorzubringen.“</h2></div>
+        <div class="text-left text-vue2"><h4 class="mt-4">„Nichts ist hilfreicher als eine Herausforderung, um das Beste in einem Menschen hervorzubringen.“</h4></div>
         </div>
+      </div>
     </template>
   </TheHomeLayout>
 </template>
