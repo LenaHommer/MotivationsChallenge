@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/pages/HomePage.vue";
 import FirstPage from "@/pages/FirstPage";
 import CreateChallengePage from "@/pages/CreateChallengePage";
+import RunningChallengePage from "@/pages/RunningChallengePage";
 
 import store from "../store";
 
@@ -30,6 +31,10 @@ const router = createRouter({
     {
         path:"/create/challenge",
         component: CreateChallengePage,
+    },
+    {
+        path:"/running/challenge",
+        component: RunningChallengePage,
     },
   ],
 });

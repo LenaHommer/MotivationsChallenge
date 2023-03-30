@@ -6,9 +6,23 @@
 
 export default {
   name: 'App',
+  computed: {
+    token() {
+      return this.$store.getters.token;
+    },
+  },
   created() {
     this.$store.dispatch("autoSignin");
-    console.log(this.$store);
+  },
+  watch: {
+    token: {
+      handler() {
+        if (this.token) {
+          this.$store.dispatch("fetchChallenges");
+        }
+      },
+      immediate: true,
+    },
   },
 };
 </script>
