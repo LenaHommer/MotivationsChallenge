@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="mt-4">
-                    CHALLENGES für dich
+                    Challenges für dich
                 </h3>
                 <div class="card mt-4">
                     <div class="row no-gutters">
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="mt-4">
-                    CHALLENGES im Team
+                    Challenges im Team
                 </h3>
                 <div class="card mt-4">
                     <div class="row no-gutters">

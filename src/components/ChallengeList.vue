@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <img src="@/assets/mountain.jpg">
+<div class="card">
+    <img src="@/assets/mountain.jpg" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{ challenge.title }}</h5>
         <p class="card-text">{{ shortendDiscription }}</p>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -26,4 +26,7 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
+
+

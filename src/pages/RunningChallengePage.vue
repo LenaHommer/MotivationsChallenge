@@ -1,9 +1,11 @@
 <template>
     <TheHomeLayout>
     <template #default>
-        <div class="row">
-            <div class="col-3 m-3" v-for="challenge in challenges" :key="challenge.id">
+        <div class="container mt-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-6 col-lg-4" v-for="challenge in challenges" :key="challenge.id">
                 <ChallengeList :challenge="challenge"></ChallengeList>
+                </div>
             </div>
         </div>
     </template>
