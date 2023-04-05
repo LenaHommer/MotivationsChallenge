@@ -23,7 +23,11 @@
         <li class="nav-item">
           <router-link to="/running/challenge" class="nav-link" href="#">laufende Challenge</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/profile" class="nav-link" href="#">Profil</router-link>
+        </li>
       </ul>
+    
       <button class="btn bg-vue2" @click="signout()">
             <i class="fas fa-sign-out-alt"></i> Logout
     </button>

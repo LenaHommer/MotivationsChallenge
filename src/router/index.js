@@ -3,6 +3,7 @@ import HomePage from "@/pages/HomePage.vue";
 import FirstPage from "@/pages/FirstPage";
 import CreateChallengePage from "@/pages/CreateChallengePage";
 import RunningChallengePage from "@/pages/RunningChallengePage";
+import Profile from "@/pages/Profile";
 
 import store from "../store";
 
@@ -35,6 +36,10 @@ const router = createRouter({
     {
         path:"/running/challenge",
         component: RunningChallengePage,
+    },
+    {
+        path:"/profile",
+        component: Profile,
     },
   ],
 });
