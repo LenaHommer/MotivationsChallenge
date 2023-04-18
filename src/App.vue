@@ -29,6 +29,8 @@ export default {
 
 <style>
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+@import "~bootstrap-avatar/dist/avatar.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~animate.css/animate.min.css";
 
@@ -46,19 +48,5 @@ export default {
 }
 .text-vue2 {
   color: rgb(26, 61, 30);
-}
-
-@media (min-width: 768px) {
-       
-}
-
-@media (min-width: 480px) {
-       
-}
-
-
-
-      
-
-
+}   
 </style>
