@@ -8,7 +8,7 @@
     </div>
 
     <div class="aler alert-danger col-md-12" v-if="error">{{ errorDisplayText }}</div>
-    <Form @submit="submitData" :validation-schema="schema" v-slot="{ errors }">
+    <VeeValidateForm @submit="submitData" :validation-schema="schema" v-slot="{ errors }">
         <div class="form-row">
             <div class="form-group col-md-4 offset-md-4">
                 <label for="email"><strong>E-Mail-Adresse</strong></label>
@@ -43,18 +43,18 @@
                 </div>
             </div>
         </div>
-    </Form>
+    </VeeValidateForm>
   </div>
 </template>
 
 <script>
-import { Form, Field} from "vee-validate";
+import { Form as VeeValidateForm, Field} from "vee-validate";
 import * as yup from "yup";
 
 export default {
-    name: "Login",
+    name: "LoginSheet",
     components: {
-        Form,
+        VeeValidateForm,
         Field,
     },
      emits: {
