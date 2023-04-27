@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@popperjs/core": "^2.11.7",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.2.3",
@@ -20,7 +21,9 @@
     "jquery": "^3.6.4",
     "vee-validate": "^4.4.7",
     "vue": "^3.2.47",
+    "vue-avatar": "^2.3.3",
     "vue-router": "^4.0.10",
+    "vue3-avatar": "^1.0.1",
     "vuex": "^4.0.2",
     "yup": "^0.32.9"
   },
@@ -31,7 +34,8 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "vue-cli-plugin-vuetify": "~2.5.8"
   },
   "eslintConfig": {
     "root": true,
