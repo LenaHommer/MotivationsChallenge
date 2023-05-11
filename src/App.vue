@@ -34,7 +34,6 @@ export default {
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~animate.css/animate.min.css";
 
-
 .bg-vue {
   background-color: rgb(94, 125, 87);
   color: white;

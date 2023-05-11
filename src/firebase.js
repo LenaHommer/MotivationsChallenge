@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 
-// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
     apiKey: "AIzaSyADxtTydWoEDBMvQVVPgUpPfShVI3nbFow",
     authDomain: "motivationschallenge.firebaseapp.com",
@@ -14,12 +13,8 @@ const firebaseConfig = {
     measurementId: "G-30X150DN7Y"
 };
 
-// init firebase
-//initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
 
-// init firestore service
-//const db = getFirestore();
 const db = getFirestore(app);
 
 export default db 
