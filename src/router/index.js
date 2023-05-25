@@ -4,6 +4,7 @@ import FirstPage from "@/pages/FirstPage";
 import CreateChallengePage from "@/pages/CreateChallengePage";
 import RunningChallengePage from "@/pages/RunningChallengePage";
 import Profile from "@/pages/Profile";
+import ProfileData from "@/pages/ProfileData";
 
 import store from "../store";
 
@@ -40,6 +41,10 @@ const router = createRouter({
     {
         path:"/profile",
         component: Profile,
+    },
+    {
+        path:"/profiledata",
+        component: ProfileData,
     },
   ],
 });

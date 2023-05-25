@@ -2,7 +2,7 @@
   <TheHomeLayout>
     <div class="container mt-4">
       <div class="row">
-        <div class="col-12">
+        <div class="mt-16 col-12">
           <h3>Deine Profildaten</h3>
         </div>
         <div class="form row">

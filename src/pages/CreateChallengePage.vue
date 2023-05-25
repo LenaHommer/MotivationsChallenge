@@ -2,7 +2,7 @@
   <TheHomeLayout>
     <template #default>
         <div class="row">
-            <div class="col-12">
+            <div class="mt-16 col-12">
                 <h3 class="mt-4">
                     Challenges für dich
                 </h3>

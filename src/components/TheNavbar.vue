@@ -10,7 +10,7 @@
         <v-spacer></v-spacer>
 
         <v-btn @click="signout">
-          signout
+          logout
           <v-icon
             end
             icon="mdi-export"
@@ -22,29 +22,56 @@
         v-model="drawer"
         temporary
       >
-        <!-- <v-list
-          :items="items"
-          router :to="items"
-        ></v-list> -->
-
         <v-list>
-          <v-list-subheader>DEIN BEREICH</v-list-subheader>
-
+          <v-list-subheader>let's get started</v-list-subheader>
           <v-list-item
           v-for="(item, i) in items"
           :key="i"
           :value="item"
           router :to="item.route"
-          active-color="primary"
+          active-color="bg-vue2"
           >
 
           <template v-slot:prepend>
           <v-icon :icon="item.icon"></v-icon>
         </template>
         <v-list-item-title>{{ item.title }}</v-list-item-title>
-
           </v-list-item>
         </v-list>
+
+        
+
+        <v-list v-model:opened="open">
+        <v-list-group value="Profil">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              v-bind="props"
+              prepend-icon='mdi-account'
+              title="Profil"
+            ></v-list-item>
+          </template>
+
+          <v-list-item
+            v-for="(profile, i) in profiles"
+            :key="i"
+            :value="profile"
+            router :to="profile.route"
+          >
+
+          <template v-slot:prepend>
+          <v-icon :icon="profile.icon"></v-icon>
+        </template>
+        <v-list-item-title>{{ profile.title }}</v-list-item-title>
+          </v-list-item>
+        
+  
+  
+        </v-list-group>
+    </v-list>
+        
+
+
+
       </v-navigation-drawer>
     </div>
 </template>
@@ -56,10 +83,15 @@ export default {
         drawer: false,
         group: null,
         items: [
-          { title: 'new Challenge', route: '/create/challenge' },
-          { title: 'laufende Challenge', route: '/running/challenge' },
-          { title: 'Profil', icon: 'mdi-account', route: '/profile' }
+          { title: 'Home',icon: 'mdi-home', route: "/first" },
+          { title: 'new Challenge',icon: 'mdi-plus-outline', route: '/create/challenge' },
+          { title: 'laufende Challenge', icon: 'mdi-file-outline',route: '/running/challenge' },
         ],
+        open: ['Users'],
+        profiles: [
+        { title: 'Profil', icon: 'mdi-account', route: '/profiledata' },
+        { title: 'Einstellungen', icon: 'mdi-cog-outline', route: '/profile' }
+      ],
   }),
   watch: {
       group () {
