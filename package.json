@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@mdi/font": "^7.2.96",
     "@popperjs/core": "^2.11.7",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
@@ -28,13 +28,14 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-service": "~5.0.8",
     "@vue/compiler-sfc": "^3.0.0",
     "eslint": "^8.39.0",
-    "eslint-plugin-vue": "^9.11.0",
-    "@babel/eslint-parser": "^7.21.3"
+    "eslint-plugin-vue": "^9.11.0"
   },
   "eslintConfig": {
     "root": true,

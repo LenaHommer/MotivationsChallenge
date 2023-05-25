@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+  <v-app>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
@@ -30,9 +32,9 @@ export default {
 <style>
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
-@import "~bootstrap-avatar/dist/avatar.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~animate.css/animate.min.css";
+@import "@mdi/font/css/materialdesignicons.css";
 
 .bg-vue {
   background-color: rgb(94, 125, 87);

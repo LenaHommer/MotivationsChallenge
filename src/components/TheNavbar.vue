@@ -1,44 +1,71 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-vue navbar-dark">
-  <div class="container-fluid mt-2">
-    <a class="navbar-brand" href="#">mydiscipline</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item active">
-          <router-link to="/first" class="nav-link" href="#">Home<span class="sr-only">(current)</span></router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/create/challenge" class="nav-link" href="#">new Challenge</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/running/challenge" class="nav-link" href="#">laufende Challenge</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/profile" class="nav-link" href="#">Profil</router-link>
-        </li>
-      </ul>
-    
-      <button class="btn bg-vue2" @click="signout()">
-            <i class="fas fa-sign-out-alt"></i> Logout
-    </button>
+  <div>
+      <v-app-bar>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>
+          <span class="font-weight-light">my</span>
+          <span>Discipline</span>
+        </v-toolbar-title>
+        
+        <v-spacer></v-spacer>
+
+        <v-btn @click="signout">
+          signout
+          <v-icon
+            end
+            icon="mdi-export"
+          ></v-icon>
+        </v-btn>
+      </v-app-bar>
+        
+      <v-navigation-drawer
+        v-model="drawer"
+        temporary
+      >
+        <!-- <v-list
+          :items="items"
+          router :to="items"
+        ></v-list> -->
+
+        <v-list>
+          <v-list-subheader>DEIN BEREICH</v-list-subheader>
+
+          <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :value="item"
+          router :to="item.route"
+          active-color="primary"
+          >
+
+          <template v-slot:prepend>
+          <v-icon :icon="item.icon"></v-icon>
+        </template>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
     </div>
-  </div>
-</nav>
 </template>
 
 <script>
 export default {
     name: "TheNavbar",
+    data: () => ({
+        drawer: false,
+        group: null,
+        items: [
+          { title: 'new Challenge', route: '/create/challenge' },
+          { title: 'laufende Challenge', route: '/running/challenge' },
+          { title: 'Profil', icon: 'mdi-account', route: '/profile' }
+        ],
+  }),
+  watch: {
+      group () {
+        this.drawer = false
+      },
+    },
     methods: {
         async signout() {
             try {
@@ -49,6 +76,7 @@ export default {
             }
         },
     },
+
 };
 </script>
 
